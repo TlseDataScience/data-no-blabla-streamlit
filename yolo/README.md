@@ -1,4 +1,4 @@
-# DALL-E Streamlit experiment
+# YOLO Streamlit experiment
 
 Inspired from this [ISAE course](https://supaerodatascience.github.io/OBD/1_5_deployment_tp.html#developpement-de-apppy)
 
