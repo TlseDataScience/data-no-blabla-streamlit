@@ -121,7 +121,6 @@ def predict(inputs: Input) -> Result:
     # Decode image
     try:
         image = inputs.image.encode("utf-8")
-        print(image)
         image = base64.b64decode(image)
         image = Image.open(io.BytesIO(image))
     except:
@@ -137,7 +136,7 @@ def predict(inputs: Input) -> Result:
     classes = predictions.names
 
     # Post processing
-    predictions = predictions.xyxy[0].numpy()
+    predictions = predictions.xyxy[0].cpu().numpy()
     detections = [parse_prediction(prediction=pred, classes=classes) for pred in predictions]
 
     result = Result(detections=detections, time=round(t1 - t0, 3), model=model_name)
