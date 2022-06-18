@@ -62,7 +62,7 @@ app = FastAPI(
 )
 
 # %%
-MODEL_NAMES = ["yolov5s", "yolov5m", "yolov5l"]
+MODEL_NAMES = ["yolov5s", "yolov5m", "yolov5l", "yolov5x"]
 MODELS = {}
 
 
@@ -121,6 +121,7 @@ def predict(inputs: Input) -> Result:
     # Decode image
     try:
         image = inputs.image.encode("utf-8")
+        print(image)
         image = base64.b64decode(image)
         image = Image.open(io.BytesIO(image))
     except:
