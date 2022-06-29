@@ -12,6 +12,6 @@ Des instructions de setup sont incluses dans le README de chaque exercice:
 2) Jouer avec le client sur colab
 3) Récupérer le fichier .py du notebook et le copier localement
 4) Installer streamlit sur un environnement local
-5) `streamlit run script.py`: Il ne devrait rien s'afficher mais le script doit tourner !
-6) Transformer le script python en app interactive
+5) Transformer le script python en app interactive en insérant vos appels streamlit `st.`
+6) `streamlit run script.py` lancera votre application.
 
