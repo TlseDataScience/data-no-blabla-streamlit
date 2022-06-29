@@ -1,1 +1,6 @@
 .DS_Store
+.virtual_documents
+.ipynb_checkpoints
+.idea
+.vscode
+
