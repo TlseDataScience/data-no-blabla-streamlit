@@ -7,11 +7,11 @@
 #       extension: .py
 #       format_name: light
 #       format_version: '1.5'
-#       jupytext_version: 1.12.0
+#       jupytext_version: 1.13.5
 #   kernelspec:
-#     display_name: py38-deepzoom
+#     display_name: Python 3 (ipykernel)
 #     language: python
-#     name: py38-deepzoom
+#     name: python3
 # ---
 
 # + [markdown] id="2F4hsFSsZXVK"
@@ -57,7 +57,9 @@ server_url = "https://wide-parks-rest-35-230-172-249.loca.lt"  # @param {type:"s
 # ## Select model
 
 # + cellView="form" id="XuI7JKJ6ulwx"
-yolo_model = "yolov5m"  # @param ["yolov5s", "yolov5m", "yolov5l", "yolov5x"] {allow-input: true}
+yolo_model = (
+    "yolov5m"  # @param ["yolov5s", "yolov5m", "yolov5l", "yolov5x"] {allow-input: true}
+)
 
 # + [markdown] id="7NX28T_Qum6f"
 # ## Perform the inference
@@ -88,8 +90,7 @@ def draw_preds(image, preds, class_names):
     colors = plt.cm.get_cmap("viridis", len(class_names)).colors
     colors = (colors[:, :3] * 255.0).astype(np.uint8)
 
-    font = list(Path("arial.ttf").glob("**/*.ttf"))[0].name
-    font = ImageFont.truetype(font=font, size=np.floor(3e-2 * image.size[1] + 0.5).astype("int32"))
+    font = ImageFont.load_default()
     thickness = (image.size[0] + image.size[1]) // 300
 
     for pred in preds:
@@ -115,7 +116,8 @@ def draw_preds(image, preds, class_names):
         # My kingdom for a good redistributable image drawing library.
         for r in range(thickness):
             draw.rectangle(
-                [left + r, top + r, right - r, bottom - r], outline=tuple(colors[class_names.index(predicted_class)])
+                [left + r, top + r, right - r, bottom - r],
+                outline=tuple(colors[class_names.index(predicted_class)]),
             )
         draw.rectangle(
             [tuple(text_origin), tuple(text_origin + label_size)],

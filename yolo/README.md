@@ -10,6 +10,8 @@ Inspired from this [ISAE course](https://supaerodatascience.github.io/OBD/1_5_de
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/galleon/data-no-blabla-streamlit/blob/main/yolo/client_notebook.ipynb)
 
+## Example App
 
+In `yolo_app.py` you can find an example, that requires some packages (`pip install pydantic matplotlib`)
 
 Made with ❤️  in Toulouse
